@@ -6,7 +6,6 @@ build:
   artifacts:
     paths:
       - target/release/envkit
-    expire_in: 0
 
 test:
   script:
