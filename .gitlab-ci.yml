@@ -1,0 +1,13 @@
+image: "rust:1.36"
+
+build:
+  script:
+    - cargo build --release
+  artifacts:
+    paths:
+      - target/release/envkit
+    expire_in: 0
+
+test:
+  script:
+    - cargo test --all --verbose
