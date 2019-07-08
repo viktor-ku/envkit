@@ -16,7 +16,11 @@ pub fn parse(filepath: &std::path::PathBuf) -> env::File {
 
   reader.read_to_end(&mut bytes).unwrap();
 
+  let filename = filepath.file_name().unwrap().to_str().unwrap();
+
   env::File {
+    name: filename.to_owned(),
+    path: filepath.to_str().unwrap().to_owned(),
     errors: Vec::new(),
     body: parse_bytes(&bytes),
   }

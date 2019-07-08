@@ -2,6 +2,8 @@ use std::fmt::Debug;
 use super::{Line};
 
 pub struct File {
+  pub name: String,
+  pub path: String,
   pub errors: Vec<String>,
   pub body: Vec<Line>,
 }

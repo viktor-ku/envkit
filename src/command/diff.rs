@@ -1,5 +1,6 @@
 use crate::parser::env::{File, Line};
 use std::collections::HashMap;
+use ansi_term::Colour;
 
 pub fn diff(a: &File, b: &File) {
   let mut a_map: HashMap<String, Line> = HashMap::with_capacity(64);
@@ -16,8 +17,22 @@ pub fn diff(a: &File, b: &File) {
     }
   }
 
-  println!("Next variables were found in file_a, but not in file_b:");
+  if a_map.is_empty() {
+    println!("OK: {} has everything {} defines", &b.name, &a.name);
+    return;
+  }
+
+  println!(
+    "Next variables were found in {}, but not in {}:\n",
+    Colour::Green.paint(&a.name),
+    Colour::Red.paint(&b.name)
+  );
+
   for (key, var) in a_map.iter() {
-    println!("  {} (line {})", key, var.line);
+    println!(
+      "{} {}",
+      Colour::Red.paint(format!("- {}", &key)),
+      Colour::White.dimmed().paint(format!("found at {}:{}", &a.path, &var.line)),
+    );
   }
 }
