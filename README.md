@@ -56,6 +56,13 @@ PS. Output will be pretty and informative very soon :P
 
 ## Install
 
-At the moment you have to build it from source. You need `rustup` for it.
+### Build
+
+You will need to install rustup first.
 
 Building process should be as easy as `cargo build --release`.
+
+### Download
+
+You can download artifacts from gitlab CI from [here](https://gitlab.com/viktor-ku/envkit/pipelines)
+
