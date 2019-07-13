@@ -16,7 +16,7 @@ build-osx:
   cache:
     key: osxcross
     paths:
-      - osxcross
+      - osxcross/target/bin
   artifacts:
     name: "envkit-osx-$CI_COMMIT_TAG"
     paths:
