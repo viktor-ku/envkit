@@ -10,8 +10,9 @@ build-linux:
 build-osx:
   script:
     - wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
+    - apt-get install software-properties-common python-software-properties
     - apt-get update
-    - add-apt-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-6.0 main"
+    - apt-add-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-6.0 main"
     - apt-get install -y clang-6.0 lld-6.0
     - make build-osx
   cache:
