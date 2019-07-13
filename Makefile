@@ -21,10 +21,10 @@ build: build-linux build-osx
 install: install-linux
 
 install-linux:
-	sudo ln -f target/release/envkit /usr/local/bin/envkit
+	sudo cp -f target/release/envkit /usr/local/bin/envkit
 
 install-osx:
-	sudo ln -f target/x86_64-apple-darwin/release/envkit /usr/local/bin/envkit
+	sudo cp -f target/x86_64-apple-darwin/release/envkit /usr/local/bin/envkit
 
 uninstall:
 	sudo rm -f /usr/local/bin/envkit
