@@ -1,12 +1,35 @@
 image: "rustlang/rust:nightly"
 
-build:
+stages:
+  - build
+  - test
+
+# Build
+
+build-linux:
+  stage: build
   script:
-    - cargo build --release
+    - make build-linux
   artifacts:
     paths:
       - target/release/envkit
 
-test:
+build-osx:
+  stage: build
   script:
-    - cargo test --all --verbose
+    - apt install clang gcc g++ zlib1g-dev libmpc-dev libmpfr-dev libgmp-dev
+    - make build-osx
+  cache:
+    key: osxcross
+    paths:
+      - osxcross
+  artifacts:
+    paths:
+      - target/x86_64-apple-darwin/release/envkit
+
+# Test
+
+test:
+  stage: test
+  script:
+    - cargo test
