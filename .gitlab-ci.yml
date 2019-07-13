@@ -1,6 +1,11 @@
 image: "rustlang/rust:nightly"
 
+stages:
+  - test
+  - build
+
 build-linux:
+  stage: build
   script:
     - make build-linux
   artifacts:
@@ -11,6 +16,7 @@ build-linux:
     - tags
 
 build-osx:
+  stage: build
   script:
     - apt-get update
     - apt-get install -y clang cmake
@@ -27,5 +33,6 @@ build-osx:
     - tags
 
 test:
+  stage: test
   script:
     - cargo test
