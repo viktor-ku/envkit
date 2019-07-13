@@ -9,6 +9,7 @@ build-linux:
 
 build-osx:
   script:
+    - apt install clang gcc g++
     - make build-osx
   cache:
     key: osxcross
