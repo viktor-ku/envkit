@@ -6,11 +6,13 @@ build-linux:
   artifacts:
     paths:
       - target/release/envkit
+  only:
+    - tags
 
 build-osx:
   script:
     - apt-get update
-    - apt-get install -y clang
+    - apt-get install -y clang cmake
     - make build-osx
   cache:
     key: osxcross
@@ -23,3 +25,5 @@ build-osx:
 test:
   script:
     - cargo test
+  only:
+    - tags
