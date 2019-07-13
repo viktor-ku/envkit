@@ -4,10 +4,9 @@ build-linux:
   script:
     - make build-linux
   artifacts:
+    name: "envkit-linux-$CI_COMMIT_TAG"
     paths:
       - target/release/envkit
-  only:
-    - tags
 
 build-osx:
   script:
@@ -19,11 +18,10 @@ build-osx:
     paths:
       - osxcross
   artifacts:
+    name: "envkit-osx-$CI_COMMIT_TAG"
     paths:
       - target/x86_64-apple-darwin/release/envkit
 
 test:
   script:
     - cargo test
-  only:
-    - tags
