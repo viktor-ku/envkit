@@ -14,5 +14,12 @@ pub enum CLI {
       parse(from_os_str),
     )]
     file_b: std::path::PathBuf,
+
+    #[structopt(
+      short = "s",
+      long = "silent",
+      help = "Prints out simple key=value pairs without formatting"
+    )]
+    silent: bool,
   }
 }
