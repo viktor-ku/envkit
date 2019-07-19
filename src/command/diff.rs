@@ -35,4 +35,6 @@ pub fn diff(a: &File, b: &File) {
       Colour::White.dimmed().paint(format!("found at {}:{}", &a.path, &var.line)),
     );
   }
+
+  std::process::exit(1);
 }
