@@ -5,5 +5,5 @@ authors = ["Viktor Kuroljov <viktor.konsta@gmail.com>"]
 edition = "2018"
 
 [dependencies]
-structopt = "0.2.*"
-ansi_term = "0.11.*"
+structopt = "0.2.18"
+ansi_term = "0.12.0"
