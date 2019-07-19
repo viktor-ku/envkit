@@ -18,7 +18,6 @@ pub fn diff(a: &File, b: &File) {
   }
 
   if a_map.is_empty() {
-    println!("OK: {} has everything {} defines", &b.name, &a.name);
     return;
   }
 
