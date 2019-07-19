@@ -27,11 +27,20 @@ pub fn diff(a: &File, b: &File) {
     Colour::Red.paint(&b.name)
   );
 
-  for (key, var) in a_map.iter() {
+  for (key, line) in a_map.iter() {
+    print!("{}", Colour::Red.paint(&key.to_string()));
+
+    let value = &line.variable.as_ref().unwrap().value;
+
+    if !value.is_empty() {
+      print!(" {}", Colour::White.dimmed().paint("=> ["));
+      print!("{}", value);
+      print!("{}", Colour::White.dimmed().paint("]"));
+    }
+
     println!(
-      "{} {}",
-      Colour::Red.paint(format!("- {}", &key)),
-      Colour::White.dimmed().paint(format!("found at {}:{}", &a.path, &var.line)),
+      " {}",
+      Colour::White.dimmed().paint(format!("found at {}:{}", &a.path, &line.line)),
     );
   }
 
