@@ -41,6 +41,7 @@ function call_install {
   local downloaded_version=$(./envkit --version 2>> /dev/null)
   if [[ $downloaded_version == "envkit $ref" ]]; then
     echo Installing $ref...
+    sudo mkdir -p $dest
     sudo cp -f ./envkit $dest/envkit
     call_message_installed
     exit 0
@@ -55,6 +56,7 @@ function call_install {
 
   echo Installing $ref...
   chmod +x ./envkit
+  sudo mkdir -p $dest
   sudo cp -f ./envkit $dest/envkit
   call_message_installed
 }
