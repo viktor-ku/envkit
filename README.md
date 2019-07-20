@@ -2,7 +2,7 @@
 
 > The stupid .env files management tool
 
-Try the following command to get you started:
+Run `envkit --help` to get you started!
 
 ```
 envkit --help
@@ -12,57 +12,18 @@ envkit --help
 
 ### Diff
 
-Shows which variables are not found in the file b compared to the file a. It checks for the given
-variable across the entire file so it doesn't have to be on the same line.
+Shows missing variables in the `file_b` compared to the `file_a`. Unlike the standard `diff` program
+it searches for the variable across the entire file.
 
-Consider next two files:
+## Get started
 
+You have two options: install binary or build it yourself using `rustup`.
+
+### Install
+
+Run the following command in your terminal. It will download the latest available binary for your platform
+from our CI/CD and install/upgrade it.
+
+```bash
+curl "https://gitlab.com/viktor-ku/envkit/raw/master/scripts/install.sh" | sh
 ```
-# File A.env
-ONE=1
-TWO=2
-THREE=3
-```
-
-and
-
-```
-# File B.env
-THREE=3
-FOUR=4
-FIVE=5
-```
-
-`envkit diff A.env B.env` will output:
-
-```
-Next variables were found in file_a, but not in file_b:
-  ONE (line 2)
-  TWO (line 3)
-```
-
-while `envkit diff B.env A.env` will output:
-
-```
-Next variables were found in file_a, but not in file_b:
-  FOUR (line 3)
-  FIVE (line 4)
-```
-
-Note that it does not matter that `THREE` is located at the third line in the file `A.env` but on the
-first line in the file `B.env`.
-
-PS. Output will be pretty and informative very soon :P
-
-## Install
-
-### Build
-
-You will need to install rustup first.
-
-Building process should be as easy as `cargo build --release`.
-
-### Download
-
-You can download artifacts from gitlab CI from [here](https://gitlab.com/viktor-ku/envkit/pipelines)
-
