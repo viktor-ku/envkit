@@ -21,10 +21,6 @@ build-osx:
     - apt-get update
     - apt-get install -y clang cmake
     - make build-osx
-  cache:
-    key: osxcross
-    paths:
-      - osxcross
   artifacts:
     name: "envkit-osx-$CI_COMMIT_TAG"
     paths:
