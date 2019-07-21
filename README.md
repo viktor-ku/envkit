@@ -25,5 +25,5 @@ Run the following command in your terminal. It will download the latest availabl
 from our CI/CD and install/upgrade it.
 
 ```bash
-curl "https://gitlab.com/viktor-ku/envkit/raw/master/scripts/install.sh" | sh
+curl "https://gitlab.com/viktor-ku/envkit/raw/0.2.0/scripts/install.sh" | sh
 ```

@@ -1,7 +1,7 @@
 P_OSX=OSX
 P_LINUX=LINUX
 
-ref=0.1.0
+ref=0.2.0
 dest=/usr/local/bin
 
 function call_download {
