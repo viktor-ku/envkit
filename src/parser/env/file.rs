@@ -1,27 +1,21 @@
+use super::Line;
 use std::fmt::Debug;
-use super::{Line};
 
 pub struct File {
-  pub name: String,
-  pub path: String,
-  pub errors: Vec<String>,
-  pub body: Vec<Line>,
+    pub name: String,
+    pub path: String,
+    pub errors: Vec<String>,
+    pub body: Vec<Line>,
 }
 
 impl Debug for File {
-  fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-    let mut s = String::new();
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        let mut s = String::new();
 
-    for (index, line) in self.body.iter().enumerate() {
-      s.push_str(
-        &format!(
-          "    [{}] => {:?}\n",
-          index,
-          line
-        )
-      );
+        for (index, line) in self.body.iter().enumerate() {
+            s.push_str(&format!("    [{}] => {:?}\n", index, line));
+        }
+
+        f.write_str(&s)
     }
-
-    f.write_str(&s)
-  }
 }

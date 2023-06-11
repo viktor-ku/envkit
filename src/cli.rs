@@ -1,25 +1,22 @@
-use structopt::StructOpt;
+use clap::{command, Parser, Subcommand};
 
-#[derive(StructOpt)]
-#[structopt(name = "envkit", about = "the stupid .env management tool")]
-pub enum CLI {
-  #[structopt(name = "diff")]
-  Diff {
-    #[structopt(
-      parse(from_os_str),
-    )]
-    file_a: std::path::PathBuf,
+#[derive(Debug, Parser)]
+#[command(name = "envkit")]
+#[command(bin_name = "envkit")]
+#[command(about = "env files management made simple")]
+pub struct Cli {
+    #[command(subcommand)]
+    pub command: Commands,
+}
 
-    #[structopt(
-      parse(from_os_str),
-    )]
-    file_b: std::path::PathBuf,
+#[derive(Debug, Subcommand)]
+pub enum Commands {
+    Diff {
+        file_a: std::path::PathBuf,
 
-    #[structopt(
-      short = "s",
-      long = "silent",
-      help = "Prints out simple key=value pairs without formatting"
-    )]
-    silent: bool,
-  }
+        file_b: std::path::PathBuf,
+
+        #[arg(short, help = "do not pretty print")]
+        silent: bool,
+    },
 }

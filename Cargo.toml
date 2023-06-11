@@ -1,9 +1,9 @@
 [package]
 name = "envkit"
 version = "0.2.0"
-authors = ["Viktor Kuroljov <viktor.konsta@gmail.com>"]
-edition = "2018"
+authors = ["Viktor Kuroljov <viktor@ku.family>"]
+edition = "2021"
 
 [dependencies]
-structopt = "0.2.18"
 ansi_term = "0.12.0"
+clap = { version = "4.3.3", features = ["derive"] }
