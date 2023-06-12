@@ -5,5 +5,8 @@ authors = ["Viktor Kuroljov <viktor@ku.family>"]
 edition = "2021"
 
 [dependencies]
-ansi_term = "0.12.0"
+ansi_term = "0.12.1"
 clap = { version = "4.3.3", features = ["derive"] }
+
+[dev-dependencies]
+trycmd = "0.14.16"
