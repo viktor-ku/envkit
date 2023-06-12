@@ -24,5 +24,11 @@ fn main() {
 
             command::diff(&env_a_file, &env_b_file, silent);
         }
+        Commands::Swap { file_a, file_b } => {
+            let canon_file_a = file_a.canonicalize().unwrap();
+            let canon_file_b = file_b.canonicalize().unwrap();
+
+            command::swap(canon_file_a, canon_file_b).unwrap();
+        }
     };
 }

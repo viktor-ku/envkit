@@ -19,4 +19,9 @@ pub enum Commands {
         #[arg(short, help = "do not pretty print")]
         silent: bool,
     },
+
+    Swap {
+        file_a: std::path::PathBuf,
+        file_b: std::path::PathBuf,
+    },
 }
